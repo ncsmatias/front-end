@@ -1,0 +1,33 @@
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5a189a;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 100%;
+    height: 8rem;
+    
+}
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 80%;    
+}
+#dropdown-basic{
+    width: 5rem;
+    height: 3rem;
+    background-color: #5a189a;
+    border: #5a189a;
+}
+#dropp{
+    font-size: 1.0rem;
+}
+.header-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10rem;
+}
