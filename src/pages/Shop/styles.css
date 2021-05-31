@@ -1,6 +1,30 @@
 .page{
+    display: flex;
+    justify-content: center;
     width: 100%;
 }
-main{
-    height: 80vh;
+.main-content{
+    width: 80vw;
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+    border-radius: 0.4rem;
+}
+.content-form{
+    height: 20vh;
+    width: 100%;
+}
+.content-shop{
+    height: 50vh;
+    width: 100%;
+    background-color: red;
+}
+input{
+    height: 2rem;
+    width: 100%;
+    border-left: 0.3rem solid;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: 0.1rem solid #D5D5D7;
+    background: #F1F9F1;
+    
 }
