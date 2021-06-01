@@ -11,13 +11,27 @@
     border-radius: 0.4rem;
 }
 .content-form{
-    height: 20vh;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .content-shop{
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.user{
+    padding: 10px 20px;
+    text-align: start;
+    text-decoration: none;
+    width: 64%;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);  
+}
+
+h6{
+    font-weight: 900;
+    color: #5a189a;
 }
 .product{
     width: 64%;
