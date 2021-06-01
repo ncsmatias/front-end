@@ -6,13 +6,15 @@ import Footer from './../../components/Footer';
 
 function Index(){
     return(
-        <div class="page">
+        <>
             <Header/>
-            <main>
-                conteúdo
-            </main>
+                <div class="page">
+                    <div class="main-content">
+                        conteúdo
+                    </div>
+                </div>
             <Footer/>
-        </div>
+        </>
     );
  
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-
-import { Dropdown, Button } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import { BsFillPersonFill, BsBagFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -9,9 +9,10 @@ function Header() {
     return(
         <header class="content">
             <div class="header-content">
-                <h2>WEBSHOES</h2>
+                
+                <Link to="/" class="link"><h2 class="logo">WEBSHOES</h2></Link>
                 <div class="header-menu">
-                    <a href="#"><BsBagFill size={24} color={'white'}/></a>
+                    <Link to="/shop" ><BsBagFill size={24} color={'white'}/></Link>
                     
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
