@@ -1,10 +1,16 @@
-.page {
-  width: 100%;
+.page{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    width: 100%;
 }
-main {
-  height: 80vh;
+.main-content{
+    width: 80vw;
+    min-height: 80vh;
+    background-color: white;
+    padding: 3rem 2rem;
+    border-radius: 0.4rem;
 }
-
 .conteudo {
   display: flex;
   background-color: bisque;

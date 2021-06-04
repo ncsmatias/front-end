@@ -18,14 +18,15 @@ function Index() {
                 <div className="main-content">
                     <div className="content-form">
                         <div className="user">
+                            <h5>Suas Informações</h5>
                             <h6>Nome</h6>
-                            Daniel
+                            Fulano Silva Santos
                             <h6>Email</h6>
-                            ae@ae.br
+                            fulano@exemplo.br
                         </div>
 
                         <div className="endereco">
-                            <Button variant="primary" onClick={handleShow}>
+                            <Button variant="secondary" onClick={handleShow}>
                                 Endereço de Entrega
                             </Button>
 
@@ -91,7 +92,7 @@ function Index() {
                                                 <br></br>
                                                 Quantidade: 3
                                                 <br></br>
-                                                Valor: R$ 299,00
+                                                <b>Valor: R$ 299,00</b>
                                             </div>
                                 </div>
                             </div>
@@ -106,7 +107,7 @@ function Index() {
                                                 <br></br>
                                                 Quantidade: 3
                                                 <br></br>
-                                                Valor: R$ 299,00
+                                                <b>Valor: R$ 299,00</b>
                                             </div>
                                 </div>
                             </div>
@@ -121,7 +122,7 @@ function Index() {
                                                 <br></br>
                                                 Quantidade: 3
                                                 <br></br>
-                                                Valor: R$ 299,00
+                                                <b>Valor: R$ 299,00</b>
                                             </div>
                                 </div>
                             </div>
