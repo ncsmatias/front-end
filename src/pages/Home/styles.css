@@ -4,30 +4,29 @@
     margin: 1rem 0;
     width: 100%;
 }
-.main-content{
-    width: 80vw;
-    min-height: 80vh;
-    background-color: white;
-    padding: 3rem 2rem;
-    border-radius: 0.4rem;
-}
 .conteudo {
-  display: flex;
-  background-color: bisque;
-  height: 100%;
+  width: 80vw;
+  min-height: 80vh;
+  border-radius: 0.4rem;
 }
 
 .barra-esq {
   background-color: #f8f9fa;
-  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .produtos {
-  background-color: blueviolet;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 85%;
-  overflow: auto;
-  overflow-x: hidden;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .barra-esq {
+    flex-direction: column;
+    align-items: center;
+  }
 }
