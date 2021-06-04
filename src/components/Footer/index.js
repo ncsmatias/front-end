@@ -5,7 +5,7 @@ import './styles.css';
 function Footer() {
     return(
         <footer>
-            footer
+            Desenvolvido por Daniel, Evandro, Felipe e Nicolas
         </footer>
     );
 }

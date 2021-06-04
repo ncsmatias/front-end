@@ -1,12 +1,12 @@
 .page{
     display: flex;
     justify-content: center;
+    margin: 1rem 0;
     width: 100%;
 }
 .main-content{
     width: 80vw;
     background-color: white;
-    box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
     padding: 3rem 2rem;
     border-radius: 0.4rem;
 }
@@ -15,21 +15,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3); 
 }
 .content-shop{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 0.5rem;
 }
 .user{
     padding: 10px 20px;
     text-align: start;
     text-decoration: none;
     width: 64%;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);  
+     
 }
 
-h6{
+h6,h5{
     font-weight: 900;
     color: #5a189a;
 }

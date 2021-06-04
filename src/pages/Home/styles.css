@@ -1,14 +1,13 @@
 .page{
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
     width: 100%;
 }
 .main-content{
     width: 80vw;
     min-height: 80vh;
     background-color: white;
-    box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
     padding: 3rem 2rem;
     border-radius: 0.4rem;
 }
