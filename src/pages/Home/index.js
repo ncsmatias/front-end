@@ -102,6 +102,7 @@ function Index() {
 
   const rednerCard = (card, index) => {
     return (
+
       <Card
         id={card.id}
         style={{
@@ -176,40 +177,43 @@ function Index() {
   }
 
   return (
-    <div class="page">
-      <Header />
-      <main>
-        <div className="conteudo">
-          <div className="barra-esq">
-            <ButtonGroup
-              toggle
-              vertical
-              size="lg"
-              style={{ width: "100%" }}
-              toggle={true}
-            >
-              <Button variant="light" onClick={() => filtrar("camiseta", 1)}>
-                Camisetas
-              </Button>
-              <Button variant="light" onClick={() => filtrar("tenis", 2)}>
-                Tênis
-              </Button>
-              <Button variant="light" onClick={() => filtrar("blusa", 3)}>
-                Blusas
-              </Button>
-              <Button variant="light" onClick={() => filtrar("acessorio", 4)}>
-                Acessórios
-              </Button>
-              <Button variant="light" onClick={() => filtrar("bermuda", 5)}>
-                Bermudas
-              </Button>
-            </ButtonGroup>
-          </div>
-          <div className="produtos">{cardInfo.map(rednerCard)}</div>
+      <>
+        <Header />
+        <div class="page">
+          <main>
+            <div className="conteudo">
+              <div className="barra-esq">
+                <ButtonGroup
+                  toggle
+                  vertical
+                  size="lg"
+                  style={{ width: "100%" }}
+                  toggle={true}
+                >
+                  <Button variant="light" onClick={() => filtrar("camiseta", 1)}>
+                    Camisetas
+                  </Button>
+                  <Button variant="light" onClick={() => filtrar("tenis", 2)}>
+                    Tênis
+                  </Button>
+                  <Button variant="light" onClick={() => filtrar("blusa", 3)}>
+                    Blusas
+                  </Button>
+                  <Button variant="light" onClick={() => filtrar("acessorio", 4)}>
+                    Acessórios
+                  </Button>
+                  <Button variant="light" onClick={() => filtrar("bermuda", 5)}>
+                    Bermudas
+                  </Button>
+                </ButtonGroup>
+              </div>
+              <div className="produtos">{cardInfo.map(rednerCard)}</div>
+            </div>
+          </main>
         </div>
-      </main>
-      <Footer />
-    </div>
+        <Footer />
+      </>
+    
   );
 }
 
