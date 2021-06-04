@@ -11,3 +11,23 @@
     padding: 3rem 2rem;
     border-radius: 0.4rem;
 }
+.conteudo {
+  display: flex;
+  background-color: bisque;
+  height: 100%;
+}
+
+.barra-esq {
+  background-color: #f8f9fa;
+  width: 15%;
+}
+
+.produtos {
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 85%;
+  overflow: auto;
+  overflow-x: hidden;
+}
