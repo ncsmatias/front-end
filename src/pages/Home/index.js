@@ -102,7 +102,6 @@ function Index() {
 
   const rednerCard = (card, index) => {
     return (
-
       <Card
         id={card.id}
         style={{
@@ -110,6 +109,7 @@ function Index() {
           marginLeft: "10px",
           marginTop: "15px",
           height: "450px",
+          boxShadow: "0 0.1rem 0.4rem rgba(0, 0, 0, 0.3)",
         }}
         key={index}
       >
@@ -180,36 +180,26 @@ function Index() {
       <>
         <Header />
         <div class="page">
-          <main>
             <div className="conteudo">
               <div className="barra-esq">
-                <ButtonGroup
-                  toggle
-                  vertical
-                  size="lg"
-                  style={{ width: "100%" }}
-                  toggle={true}
-                >
-                  <Button variant="light" onClick={() => filtrar("camiseta", 1)}>
+                  <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => filtrar("camiseta", 1)}>
                     Camisetas
                   </Button>
-                  <Button variant="light" onClick={() => filtrar("tenis", 2)}>
+                  <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => filtrar("tenis", 2)}>
                     Tênis
                   </Button>
-                  <Button variant="light" onClick={() => filtrar("blusa", 3)}>
+                  <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => filtrar("blusa", 3)}>
                     Blusas
                   </Button>
-                  <Button variant="light" onClick={() => filtrar("acessorio", 4)}>
+                  <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => filtrar("acessorio", 4)}>
                     Acessórios
                   </Button>
-                  <Button variant="light" onClick={() => filtrar("bermuda", 5)}>
+                  <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => filtrar("bermuda", 5)}>
                     Bermudas
                   </Button>
-                </ButtonGroup>
               </div>
               <div className="produtos">{cardInfo.map(rednerCard)}</div>
             </div>
-          </main>
         </div>
         <Footer />
       </>
