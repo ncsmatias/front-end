@@ -11,6 +11,34 @@ function Index() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [products, setProducts] = useState([]);
+    let valor = 0;
+
+    for(let i=0; i < sessionStorage.length; i++){
+        products.push(JSON.parse(sessionStorage.getItem(i)))
+    }
+
+    
+    const renderProducts = (card, index) => {
+        
+        const a = (card.valor.replace('R$',''))
+        
+        valor = parseFloat(a) + valor
+        return(
+            <div className="card-product" key={index}>
+                <div className="card-product-content">
+                    <img src={process.env.PUBLIC_URL + card.imagem} className="prod-img" />
+                    <div className="card-product-info">
+                        <h5>{card.produto}</h5>
+                        <br></br>
+                        <br></br>
+                                <br></br>
+                                <b>Valor: {card.valor}</b>
+                            </div>
+                </div>
+            </div>
+        );
+    }
     return (
         <>
             <Header />
@@ -81,51 +109,7 @@ function Index() {
                     <div className="content-shop">
                         <div className="product">
                             <div className="title">Meu carrinho</div>
-                            <div className="card-product">
-                                <div className="card-product-content">
-                                    <img src="https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/26/HZM-1731-026/HZM-1731-026_vitrine2.jpg?ts=1610980230" className="prod-img" />
-                                    <div className="card-product-info">
-                                        <h5>Tênis Nike Revolution 5 Masculino</h5>
-                                        <br></br>
-                                        <br></br>
-                                                Tamanho: 40
-                                                <br></br>
-                                                Quantidade: 3
-                                                <br></br>
-                                                <b>Valor: R$ 299,00</b>
-                                            </div>
-                                </div>
-                            </div>
-                            <div className="card-product">
-                                <div className="card-product-content">
-                                    <img src="https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/26/HZM-1731-026/HZM-1731-026_vitrine2.jpg?ts=1610980230" className="prod-img" />
-                                    <div className="card-product-info">
-                                        <h5>Tênis Nike Revolution 5 Masculino</h5>
-                                        <br></br>
-                                        <br></br>
-                                                Tamanho: 40
-                                                <br></br>
-                                                Quantidade: 3
-                                                <br></br>
-                                                <b>Valor: R$ 299,00</b>
-                                            </div>
-                                </div>
-                            </div>
-                            <div className="card-product">
-                                <div className="card-product-content">
-                                    <img src="https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/26/HZM-1731-026/HZM-1731-026_vitrine2.jpg?ts=1610980230" className="prod-img" />
-                                    <div className="card-product-info">
-                                        <h5>Tênis Nike Revolution 5 Masculino</h5>
-                                        <br></br>
-                                        <br></br>
-                                                Tamanho: 40
-                                                <br></br>
-                                                Quantidade: 3
-                                                <br></br>
-                                                <b>Valor: R$ 299,00</b>
-                                            </div>
-                                </div>
-                            </div>
+                            {products.map(renderProducts)}
                         </div>
                         <div className="resume">
                             <div className="title">Resumo da compra</div>
@@ -133,25 +117,19 @@ function Index() {
                                 <div className="sub-cards">
                                     Subtotal
                                             <div className="value">
-                                        R$ 100,00
-                                            </div>
-                                </div>
-                                <div className="sub-cards">
-                                    Frete
-                                            <div className="value">
-                                        R$ 5,00
+                                            R$ {valor}
                                             </div>
                                 </div>
                                 <div className="sub-cards">
                                     Descontos
                                             <div className="value">
-                                        R$ 10,00
+                                            R$ 10
                                             </div>
                                 </div>
                                 <div className="sub-cards">
                                     Valor total
                                             <div className="value">
-                                        R$ 95,00
+                                            R$ {valor - 10}
                                             </div>
                                 </div>
                                 <button className="buy-button">Comprar</button>

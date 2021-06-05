@@ -1,10 +1,10 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import "./styles.css";
 
 import Header from "./../../components/Header";
 import Footer from "./../../components/Footer";
 
-import { Card, ToggleButton, ButtonGroup, Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 // import imagem from "../../assets/cadeira_teste.jpg"
 
@@ -162,24 +162,27 @@ function Index() {
     // console.log(document.getElementById("produto-" + produto_id).innerText);
     // console.log(document.querySelector("#valor-" + produto_id).innerHTML);
 
+    
     const data = {
       produto: document.getElementById("produto-" + produto_id).innerText,
       valor: document.querySelector("#valor-" + produto_id).innerHTML,
       imagem: document.querySelector("#imagem-" + produto_id).src,
     };
-
-    //Salvando os dados para serem usados pelo
-    sessionStorage.setItem(index, JSON.stringify(data));
-
-    // console.log(JSON.parse(sessionStorage.getItem(index)));
-
-    setIndex(index + 1);
+    if(sessionStorage.length !== 0){
+      sessionStorage.setItem(sessionStorage.length, JSON.stringify(data));
+      setIndex(index + 1);
+    }else{
+      //Salvando os dados para serem usados pelo
+      sessionStorage.setItem(index, JSON.stringify(data));
+      setIndex(index + 1);
+    }
+    //console.log(JSON.parse(sessionStorage.getItem(index)));
   }
 
   return (
       <>
         <Header />
-        <div class="page">
+        <div className="page">
             <div className="conteudo">
               <div className="barra-esq">
                   <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => filtrar("camiseta", 1)}>
