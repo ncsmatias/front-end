@@ -7,6 +7,7 @@ import Footer from './../../components/Footer';
 
 function Index() {
     const [show, setShow] = useState(false);
+    let aux = 0;
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -14,10 +15,21 @@ function Index() {
     const [products, setProducts] = useState([]);
     let valor = 0;
 
-    for(let i=0; i < sessionStorage.length; i++){
-        products.push(JSON.parse(sessionStorage.getItem(i)))
+    const clienteFrete = {
+        rua: '',
+        bairro: '',
+        numero: '',
+        complemento: '',
+        cidade: '',
+        estado: ''
     }
-
+    const [cep, setCep] = useState();
+    const [rua, setRua] = useState();
+    const [bairro, setBairro] = useState();
+    const [numero, setNumero] = useState();
+    const [complemento, setComplemento] = useState();
+    const [estado, setEstado] = useState();
+    const [cidade, setCidade] = useState();
     
     const renderProducts = (card, index) => {
         
@@ -38,6 +50,29 @@ function Index() {
                 </div>
             </div>
         );
+    }
+
+      
+    if(products.length === 0){
+        for(let i=0; i < sessionStorage.length; i++){
+            products.push(JSON.parse(sessionStorage.getItem(i)))
+        }
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        if(!rua || !bairro || !complemento || !numero || !cidade || !estado){
+            alert("Por favor preencha os dados corretamente!")
+        }else{
+            clienteFrete.rua = rua;
+            clienteFrete.bairro = bairro;
+            clienteFrete.numero = numero;
+            clienteFrete.complemento = complemento;
+            clienteFrete.cidade = cidade;
+            clienteFrete.estado = estado;
+            console.log(clienteFrete);
+            handleClose();
+        }
     }
     return (
         <>
@@ -63,35 +98,67 @@ function Index() {
                                     <Modal.Title>Endereço de Entrega</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    <Form>
+                                    <Form onSubmit={handleSubmit}>
+                                        <Form.Group className="mb-3" controlId="formBasic">
+                                            <Form.Label>CEP</Form.Label>
+                                            <Form.Control type="text"
+                                             placeholder="CEP" 
+                                             value={cep} 
+                                             onChange={e => setCep(e.target.value)}
+                                             required/>
+                                        </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasic">
                                             <Form.Label>Endereço</Form.Label>
-                                            <Form.Control type="text" placeholder="Endereço" />
+                                            <Form.Control type="text"
+                                             placeholder="Endereço" 
+                                             value={rua} 
+                                             onChange={e => setRua(e.target.value)}
+                                             required/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
                                             <Form.Label>Bairro</Form.Label>
-                                            <Form.Control type="text" placeholder="Bairro" />
+                                            <Form.Control type="text"
+                                             placeholder="Bairro"
+                                             value={bairro} 
+                                             onChange={e => setBairro(e.target.value)}
+                                             required />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
                                             <Form.Label>Número</Form.Label>
-                                            <Form.Control type="number" placeholder="Número" />
+                                            <Form.Control type="number" 
+                                             placeholder="Número"
+                                             value={numero} 
+                                             onChange={e => setNumero(e.target.value)}
+                                             required />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
                                             <Form.Label>Complemento</Form.Label>
-                                            <Form.Control type="text" placeholder="Complemento" />
+                                            <Form.Control type="text"
+                                             placeholder="Complemento"
+                                             value={complemento} 
+                                             onChange={e => setComplemento(e.target.value)}
+                                             required />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
                                             <Form.Label>Estado</Form.Label>
-                                            <Form.Control type="text" placeholder="Estado" />
+                                            <Form.Control type="text"
+                                             placeholder="Estado"
+                                             value={estado} 
+                                             onChange={e => setEstado(e.target.value)}
+                                             required />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
                                             <Form.Label>Cidade</Form.Label>
-                                            <Form.Control type="text" placeholder="Cidade" />
+                                            <Form.Control type="text"
+                                             placeholder="Cidade"
+                                             value={cidade} 
+                                             onChange={e => setCidade(e.target.value)}
+                                             required />
                                         </Form.Group>
                                     </Form>
                                 </Modal.Body>
@@ -99,7 +166,7 @@ function Index() {
                                     <Button variant="secondary" onClick={handleClose}>
                                         Cancelar
                                     </Button>
-                                    <Button variant="primary" onClick={handleClose}>
+                                    <Button variant="primary" onClick={handleSubmit}>
                                         Salvar endereço
                                     </Button>
                                 </Modal.Footer>
@@ -115,21 +182,9 @@ function Index() {
                             <div className="title">Resumo da compra</div>
                             <div className="card-resume">
                                 <div className="sub-cards">
-                                    Subtotal
+                                    Valor Total
                                             <div className="value">
                                             R$ {valor}
-                                            </div>
-                                </div>
-                                <div className="sub-cards">
-                                    Descontos
-                                            <div className="value">
-                                            R$ 10
-                                            </div>
-                                </div>
-                                <div className="sub-cards">
-                                    Valor total
-                                            <div className="value">
-                                            R$ {valor - 10}
                                             </div>
                                 </div>
                                 <button className="buy-button">Comprar</button>
