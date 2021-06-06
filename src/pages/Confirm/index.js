@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -6,6 +6,14 @@ import Header from './../../components/Header';
 import Footer from './../../components/Footer';
 
 function Index(){
+    let endereco = '';
+    
+    endereco = (JSON.parse(sessionStorage.getItem(0)))
+
+    function voltarTelaInicial(){
+        sessionStorage.clear();
+        alert("Compra efetuada com sucesso!")
+    }
     return(
         <>
             <Header />
@@ -20,49 +28,61 @@ function Index(){
                     <div className="sub-cards">
                         CPF:
                         <div className="value">
-                             1234456
+                             123.456.789-10
                         </div>
                     </div> 
                     <div className="sub-cards">
-                        Valor da compar:
+                        Subtotal:
                         <div className="value">
-                             R$100,00
+                             R$ {endereco.valor}
+                        </div>
+                    </div> 
+                    <div className="sub-cards">
+                        Valor do Frete:
+                        <div className="value">
+                             R$ 10
+                        </div>
+                    </div> 
+                    <div className="sub-cards">
+                        Valor Total:
+                        <div className="value">
+                             R$ {endereco.valor + 10}
                         </div>
                     </div> 
                     <div className="sub-cards">
                         Endereço:
                         <div className="value">
-                             Antonio Onofre Gerbasi
+                             {endereco.rua}
                         </div>
                     </div> 
                     <div className="sub-cards">
                         Bairro:
                         <div className="value">
-                             Jardim das Rosas
+                             {endereco.bairro}
                         </div>
                     </div> 
                     <div className="sub-cards">
                         Número:
                         <div className="value">
-                             110
+                             {endereco.numero}
                         </div>
                     </div>
                     <div className="sub-cards">
                         Complemento:
                         <div className="value">
-                             -
+                             {endereco.complemento}
                         </div>
                     </div>
                     <div className="sub-cards">
                         Estado:
                         <div className="value">
-                             São Paulo
+                             {endereco.estado}
                         </div>
                     </div>
                     <div className="sub-cards">
                         Cidade:
                         <div className="value">
-                             Presidente Prudente
+                             {endereco.cidade}
                         </div>
                     </div>
                     <div className="sub-cards">
@@ -73,7 +93,7 @@ function Index(){
                     </div>
 
                     <Link to="/" className="link-button">
-                        <button className="confirm-button">Finalizar</button>
+                        <button className="confirm-button" onClick={voltarTelaInicial}>Finalizar</button>
                     </Link>
                 </div>   
             </div>
