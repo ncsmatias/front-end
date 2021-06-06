@@ -1,121 +1,126 @@
-.page{
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-    width: 100%;
+.page {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  width: 100%;
 }
-.main-content{
-    width: 80vw;
-    background-color: white;
-    padding: 3rem 2rem;
-    border-radius: 0.4rem;
+.main-content {
+  width: 80vw;
+  background-color: white;
+  padding: 3rem 2rem;
+  border-radius: 0.4rem;
 }
-.content-form{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 0.4rem;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3); 
+.content-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
 }
-.content-shop{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.5rem;
+.content-shop {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
 }
-.user{
-    padding: 10px 20px;
-    text-align: start;
-    text-decoration: none;
-    width: 64%;
-     
+.user {
+  padding: 10px 20px;
+  text-align: start;
+  text-decoration: none;
+  width: 64%;
 }
 
-h6,h5{
-    font-weight: 900;
-    color: #5a189a;
+h6,
+h5 {
+  font-weight: 900;
+  color: #5a189a;
 }
-.product{
-    width: 64%;
+.product {
+  width: 64%;
 }
-.resume{
-    width: 34%;
-    height: 50vh;
+.resume {
+  width: 34%;
+  height: 50vh;
 }
-.title{
-    color: #5a189a;
-    font-weight: bold;
-    font-size:1.5rem;
+.title {
+  color: #5a189a;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
-.card-product{
-    margin-top: 0.5rem;
-    width: 100%;
-    padding: 1rem;
-    box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
-    border-radius: 0.4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-product {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.card-resume{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.5rem;
-    width: 100%;
-    background-color: #e9ecef;
-    border-radius: 0.4rem;
-    flex-direction: column;
-    padding: 1rem;
+.card-resume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 0.4rem;
+  flex-direction: column;
+  padding: 1rem;
 }
-.sub-cards{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem;
-    height: 3.5rem;
-    width: 100%;
-    border-bottom: 0.1rem solid #dee2e6;
-    color: #6c757d;
-    font-size: 1rem;
-    font-weight: bold;
+.sub-cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  height: 3.5rem;
+  width: 100%;
+  border-bottom: 0.1rem solid #dee2e6;
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: bold;
 }
-.buy-button{
-    width: 100%;
-    height: 2.5rem;
-    background-color: #f3722c;
-    color: white;
-    border: 0;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: opacity 0.2s;
-    margin-top: 1rem;
+
+.link-button {
+  width: 100%;
+}
+
+.buy-button {
+  width: 100%;
+  height: 2.5rem;
+  background-color: #f3722c;
+  color: white;
+  border: 0;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  margin-top: 1rem;
 }
 .buy-button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
-.value{
-    color: #212529;
+.value {
+  color: #212529;
 }
-.card-product-content{
-    display: flex;
-    width: 96%;
-    height: 90%;
+.card-product-content {
+  display: flex;
+  width: 96%;
+  height: 90%;
 }
-.prod-img{
-    width: 10rem;
-    height: 10rem;
-    background-color: #6c757d;
+.prod-img {
+  width: 10rem;
+  height: 10rem;
+  background-color: #6c757d;
 }
-.card-product-info{
-    width: 100%;
-    height: 100%;
-    padding-left: 1.5rem;
+.card-product-info {
+  width: 100%;
+  height: 100%;
+  padding-left: 1.5rem;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 import { Modal, Button, Form } from 'react-bootstrap'
@@ -187,7 +188,28 @@ function Index() {
                                             R$ {valor}
                                             </div>
                                 </div>
-                                <button className="buy-button">Comprar</button>
+
+                                <div className="sub-cards">
+                                    Descontos
+                                            <div className="value">
+                                            R$ 10
+                                            </div>
+                                </div>
+                                <div className="sub-cards">
+                                    Frete
+                                            <div className="value">
+                                            R$ 18
+                                            </div>
+                                </div>
+                                <div className="sub-cards">
+                                    Valor total
+                                            <div className="value">
+                                            R$ {valor - 10 + 18}
+                                            </div>
+                                </div>
+                                <Link to="/confirm" className="link-button">
+                                    <button className="buy-button">Comprar</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
