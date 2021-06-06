@@ -22,7 +22,8 @@ function Index() {
         numero: '',
         complemento: '',
         cidade: '',
-        estado: ''
+        estado: '',
+        valor: '',
     }
     const [cep, setCep] = useState();
     const [rua, setRua] = useState();
@@ -62,7 +63,7 @@ function Index() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if(!rua || !bairro || !complemento || !numero || !cidade || !estado){
+        if(!rua || !bairro || !numero || !cidade || !estado){
             alert("Por favor preencha os dados corretamente!")
         }else{
             clienteFrete.rua = rua;
@@ -71,9 +72,11 @@ function Index() {
             clienteFrete.complemento = complemento;
             clienteFrete.cidade = cidade;
             clienteFrete.estado = estado;
-            console.log(clienteFrete);
+            clienteFrete.valor = valor;
             handleClose();
         }
+        sessionStorage.clear()
+        sessionStorage.setItem(0, JSON.stringify(clienteFrete));
     }
     return (
         <>
@@ -84,9 +87,9 @@ function Index() {
                         <div className="user">
                             <h5>Suas Informações</h5>
                             <h6>Nome</h6>
-                            Fulano Silva Santos
+                            José da Silva
                             <h6>Email</h6>
-                            fulano@exemplo.br
+                            jose@exemplo.br
                         </div>
 
                         <div className="endereco">
@@ -101,7 +104,7 @@ function Index() {
                                 <Modal.Body>
                                     <Form onSubmit={handleSubmit}>
                                         <Form.Group className="mb-3" controlId="formBasic">
-                                            <Form.Label>CEP</Form.Label>
+                                            <Form.Label>*CEP</Form.Label>
                                             <Form.Control type="text"
                                              placeholder="CEP" 
                                              value={cep} 
@@ -109,7 +112,7 @@ function Index() {
                                              required/>
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasic">
-                                            <Form.Label>Endereço</Form.Label>
+                                            <Form.Label>*Endereço</Form.Label>
                                             <Form.Control type="text"
                                              placeholder="Endereço" 
                                              value={rua} 
@@ -118,7 +121,7 @@ function Index() {
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
-                                            <Form.Label>Bairro</Form.Label>
+                                            <Form.Label>*Bairro</Form.Label>
                                             <Form.Control type="text"
                                              placeholder="Bairro"
                                              value={bairro} 
@@ -127,7 +130,7 @@ function Index() {
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
-                                            <Form.Label>Número</Form.Label>
+                                            <Form.Label>*Número</Form.Label>
                                             <Form.Control type="number" 
                                              placeholder="Número"
                                              value={numero} 
@@ -145,7 +148,7 @@ function Index() {
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
-                                            <Form.Label>Estado</Form.Label>
+                                            <Form.Label>*Estado</Form.Label>
                                             <Form.Control type="text"
                                              placeholder="Estado"
                                              value={estado} 
@@ -154,7 +157,7 @@ function Index() {
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasic">
-                                            <Form.Label>Cidade</Form.Label>
+                                            <Form.Label>*Cidade</Form.Label>
                                             <Form.Control type="text"
                                              placeholder="Cidade"
                                              value={cidade} 
@@ -186,25 +189,6 @@ function Index() {
                                     Valor Total
                                             <div className="value">
                                             R$ {valor}
-                                            </div>
-                                </div>
-
-                                <div className="sub-cards">
-                                    Descontos
-                                            <div className="value">
-                                            R$ 10
-                                            </div>
-                                </div>
-                                <div className="sub-cards">
-                                    Frete
-                                            <div className="value">
-                                            R$ 18
-                                            </div>
-                                </div>
-                                <div className="sub-cards">
-                                    Valor total
-                                            <div className="value">
-                                            R$ {valor - 10 + 18}
                                             </div>
                                 </div>
                                 <Link to="/confirm" className="link-button">
