@@ -4,7 +4,7 @@ import "./styles.css";
 import Header from "./../../components/Header";
 import Footer from "./../../components/Footer";
 
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Alert } from "react-bootstrap";
 
 // import imagem from "../../assets/cadeira_teste.jpg"
 
@@ -177,6 +177,7 @@ function Index() {
       setIndex(index + 1);
     }
     //console.log(JSON.parse(sessionStorage.getItem(index)));
+    alert("Produto adicionado!");
   }
 
   return (
@@ -202,6 +203,7 @@ function Index() {
                   </Button>
               </div>
               <div className="produtos">{cardInfo.map(rednerCard)}</div>
+              
             </div>
         </div>
         <Footer />
