@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import './styles.css';
 import { Modal, Button, Form } from 'react-bootstrap'
@@ -8,7 +8,7 @@ import Footer from './../../components/Footer';
 
 function Index() {
     const [show, setShow] = useState(false);
-    let aux = 0;
+    const history = useHistory();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -61,6 +61,14 @@ function Index() {
         }
     }
 
+    function checarEndereco(){
+        if(!rua || !bairro || !numero || !cidade || !estado){
+            alert("Por favor preencha o endereço!")
+        }else{
+            history.push({pathname: '/confirm'})
+        }
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
         if(!rua || !bairro || !numero || !cidade || !estado){
@@ -73,6 +81,7 @@ function Index() {
             clienteFrete.cidade = cidade;
             clienteFrete.estado = estado;
             clienteFrete.valor = valor;
+            document.querySelector("#btn-comprar").removeAttribute("disabled")
             handleClose();
         }
         sessionStorage.clear()
@@ -191,9 +200,9 @@ function Index() {
                                             R$ {valor}
                                             </div>
                                 </div>
-                                <Link to="/confirm" className="link-button">
-                                    <button className="buy-button">Comprar</button>
-                                </Link>
+                                {/*<Link to="/confirm" className="link-button">*/}
+                                    <button className="buy-button" id="btn-comprar" onClick={checarEndereco}>Comprar</button>
+                                {/*</Link>*/}
                             </div>
                         </div>
                     </div>
