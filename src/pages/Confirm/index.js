@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -12,6 +12,7 @@ function Index(){
 
     function voltarTelaInicial(){
         sessionStorage.clear();
+        localStorage.clear();
         alert("Compra efetuada com sucesso!")
     }
     return(
@@ -22,19 +23,13 @@ function Index(){
                     <div className="sub-cards">
                         Nome:
                         <div className="value">
-                             José da Silva
-                        </div>
-                    </div> 
-                    <div className="sub-cards">
-                        CPF:
-                        <div className="value">
-                             123.456.789-10
+                        {localStorage.getItem('userName')}
                         </div>
                     </div> 
                     <div className="sub-cards">
                         Subtotal:
                         <div className="value">
-                             R$ {endereco.valor}
+                             R$ {localStorage.getItem('userBuyPrice')}
                         </div>
                     </div> 
                     <div className="sub-cards">
@@ -46,43 +41,43 @@ function Index(){
                     <div className="sub-cards">
                         Valor Total:
                         <div className="value">
-                             R$ {endereco.valor + 10}
+                             R$ {parseInt(localStorage.getItem('userBuyPrice')) + 10}
                         </div>
                     </div> 
                     <div className="sub-cards">
                         Endereço:
                         <div className="value">
-                             {endereco.rua}
+                             {localStorage.getItem('userStreet')}
                         </div>
                     </div> 
                     <div className="sub-cards">
                         Bairro:
                         <div className="value">
-                             {endereco.bairro}
+                             {localStorage.getItem('userDistrict')}
                         </div>
                     </div> 
                     <div className="sub-cards">
                         Número:
                         <div className="value">
-                             {endereco.numero}
+                             {localStorage.getItem('userNumber')}
                         </div>
                     </div>
                     <div className="sub-cards">
                         Complemento:
                         <div className="value">
-                             {endereco.complemento}
+                             {localStorage.getItem('userComplement')}
                         </div>
                     </div>
                     <div className="sub-cards">
                         Estado:
                         <div className="value">
-                             {endereco.estado}
+                             {localStorage.getItem('userState')}
                         </div>
                     </div>
                     <div className="sub-cards">
                         Cidade:
                         <div className="value">
-                             {endereco.cidade}
+                             {localStorage.getItem('userCity')}
                         </div>
                     </div>
                     <div className="sub-cards">
