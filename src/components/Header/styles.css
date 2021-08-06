@@ -29,6 +29,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 5rem;
 }
 .link,.link:link,.link:visited,.link:hover,.link:focus,.link:active{
     color: inherit;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsBagFill } from "react-icons/bs";
+import { BsBagFill} from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -9,7 +9,7 @@ function Header() {
         <header className="content">
             <div className="header-content">
                 
-                <Link to="/" className="link"><h2 className="logo">WEBSHOES</h2></Link>
+                <Link to="/home" className="link"><h2 className="logo">WEBSHOES</h2></Link>
                 <div className="header-menu">
                     <Link to="/shop" ><BsBagFill size={24} color={'white'}/></Link>
                 </div>

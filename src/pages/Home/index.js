@@ -1,106 +1,71 @@
-import { React, useState } from "react";
+import { React, useState, useEffect  } from "react";
 import "./styles.css";
 
 import Header from "./../../components/Header";
 import Footer from "./../../components/Footer";
 
-import { Card, Button, Alert } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
-// import imagem from "../../assets/cadeira_teste.jpg"
-
-const cardInfo = [
-  {
-    image: "/assets/camiseta_1.jpg",
-    title: "Camisa Palmeiras I 21/22 Torcedor Puma Masculina",
-    text: "250,00",
-    id: "1",
-    categoria: "camiseta",
-  },
-  {
-    image: "/assets/tenis_1.jpg",
-    title: "Tênis Nike Lebron Witness V",
-    text: "200,00",
-    id: "2",
-    categoria: "tenis",
-  },
-  {
-    image: "/assets/camiseta_2.jpg",
-    title: "Camisa Palmeiras I 21/22 Torcedor Puma Masculina",
-    text: "300,00",
-    id: "3",
-    categoria: "camiseta",
-  },
-  {
-    image: "/assets/blusa_1.jpg",
-    title: "Blusa Palmeiras Puma Manga Longa Branca",
-    text: "400,00",
-    id: "4",
-    categoria: "blusa",
-  },
-  {
-    image: "/assets/acessorio_1.jpg",
-    title: "Mochila Palmeiras SEP BP 2017/2018",
-    text: "500,00",
-    id: "5",
-    categoria: "acessorio",
-  },
-  {
-    image: "/assets/blusa_2.jpg",
-    title: "Blusa Palmeiras Puma Manga Longa Verde",
-    text: "410,00",
-    id: "6",
-    categoria: "blusa",
-  },
-  {
-    image: "/assets/blusa_3.jpg",
-    title: "Blusa Moletom Treino Palmeiras Branca Adidas",
-    text: "200,00",
-    id: "7",
-    categoria: "blusa",
-  },
-  {
-    image: "/assets/camiseta_3.jpg",
-    title: "Camisa Palmeiras Palestra Pattern Masculina",
-    text: "300,00",
-    id: "8",
-    categoria: "camiseta",
-  },
-  {
-    image: "/assets/acessorio_2.jpg",
-    title: "Mala Puma Palmeiras Liga Medium",
-    text: "400,00",
-    id: "9",
-    categoria: "acessorio",
-  },
-  {
-    image: "/assets/camiseta_4.jpg",
-    title: "Camisa Palmeiras 1996 Retrô - Verde",
-    text: "500,00",
-    id: "10",
-    categoria: "camiseta",
-  },
-  {
-    image: "/assets/bermuda_1.jpg",
-    title: "Bermuda Palmeiras Adidas Treino Masculina",
-    text: "80,00",
-    id: "11",
-    categoria: "bermuda",
-  },
-  {
-    image: "/assets/bermuda_2.jpg",
-    title: "Bermuda Palmeiras Microfibra Masculina",
-    text: "80,00",
-    id: "12",
-    categoria: "bermuda",
-  },
-];
 
 function Index() {
   const [botaoSelecionado, SetBotaoSelecionado] = useState(0);
-  const [carrinho, setProdutoCarrinho] = useState([]);
   const [index, setIndex] = useState(0);
+  const [products, setProducts] = useState([]);
 
-  const rednerCard = (card, index) => {
+  useEffect(() => {
+    getUser()
+    getProducts()
+    getAddress()
+  }, [])
+
+  const getUser = async () => {
+  const response = await fetch('http://192.168.0.73:3333/user',{
+      method: "GET",
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    });
+      const jsonData = await response.json();
+      localStorage.setItem('userName',jsonData.name )
+      localStorage.setItem('userEmail',jsonData.email )
+  };
+
+  const getProducts = async () => {
+    const response = await fetch('http://192.168.0.73:3333/products');
+    const jsonData = await response.json();
+    setProducts(jsonData);
+  };
+
+  const getAddress = async () => {
+  const response = await fetch('http://192.168.0.73:3333/address',{
+      method: "GET",
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    });
+    const jsonData = await response.json();
+    localStorage.setItem('userStreet',jsonData.street )
+    localStorage.setItem('userDistrict',jsonData.district )
+    localStorage.setItem('userNumber',jsonData.number )
+    localStorage.setItem('userZipCode',jsonData.zip )
+    localStorage.setItem('userCity',jsonData.city )
+    localStorage.setItem('userState',jsonData.state )
+    localStorage.setItem('userComplement',jsonData.complement )
+  };
+
+  async function maiorValor(){
+    const response = await fetch('http://192.168.0.73:3333/products/desc');
+    const jsonData = await response.json();
+    setProducts(jsonData);
+  }
+
+  async function menorValor(){
+    const response = await fetch('http://192.168.0.73:3333/products/asc');
+    const jsonData = await response.json();
+    setProducts(jsonData);
+  }
+
+  const renderCard = (card, index) => {
     return (
       <Card
         id={card.id}
@@ -116,8 +81,8 @@ function Index() {
         <Card.Img
           id={"imagem-" + card.id}
           variant="top"
-          src={process.env.PUBLIC_URL + card.image}
-          alt={card.categoria}
+          src={card.image_url}
+          alt={card.category}
         />
         <Card.Body>
           <Card.Title id={"produto-" + card.id}>{card.title}</Card.Title>
@@ -136,19 +101,20 @@ function Index() {
 
   function filtrar(categoria, botao) {
     if (botao === botaoSelecionado) {
-      for (let j = 1; j <= cardInfo.length; j++) {
+      for (let j = 1; j <= products.length; j++) {
         let div = document.getElementById(j);
         div.style.display = "block";
       }
       SetBotaoSelecionado(0);
     } else {
-      for (let j = 1; j <= cardInfo.length; j++) {
+      for (let j = 1; j <= products.length; j++) {
         let div = document.getElementById(j);
         div.style.display = "block";
       }
 
-      for (let i = 1; i <= cardInfo.length; i++) {
+      for (let i = 1; i <= products.length; i++) {
         if (document.querySelector("#imagem-" + i).alt !== categoria) {
+          console.log(document.querySelector("#imagem-" + i).alt)
           let div = document.getElementById(i);
           div.style.display = "none";
         }
@@ -158,10 +124,6 @@ function Index() {
   }
 
   function pegarProduto(produto_id) {
-    // console.log(document.querySelector("#imagem-" + produto_id).src);
-    // console.log(document.getElementById("produto-" + produto_id).innerText);
-    // console.log(document.querySelector("#valor-" + produto_id).innerHTML);
-
     
     const data = {
       produto: document.getElementById("produto-" + produto_id).innerText,
@@ -201,8 +163,14 @@ function Index() {
                   <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => filtrar("bermuda", 5)}>
                     Bermudas
                   </Button>
+                  <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => maiorValor()}>
+                    Maior Valor
+                  </Button>
+                  <Button style={{ backgroundColor:"#5a189a", color: "white", width:"200px", borderRadius:"0.5rem" }} variant="light" onClick={() => menorValor()}>
+                    Menor Valor
+                  </Button>
               </div>
-              <div className="produtos">{cardInfo.map(rednerCard)}</div>
+              <div className="produtos">{products.map(renderCard)}</div>
               
             </div>
         </div>
