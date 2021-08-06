@@ -5,4 +5,4 @@ Desenvolvido por: Daniel Themoteo, Evandro Duarte, Felipe Canuto e Nícolas Mati
 
 Run:
 - Install dependencies: yarn install
-- Run aoplication: yarn start
+- Run application: yarn start
