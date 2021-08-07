@@ -5,7 +5,7 @@ import './styles.css';
 function Footer() {
     return(
         <footer>
-            Desenvolvido por Daniel, Evandro, Felipe e Nicolas
+             <strong>Desenvolvido por:</strong> Guilherme de Aguiar Pacianotto, Heitor Daniel Vani Gomes, Nicolas Matias
         </footer>
     );
 }
