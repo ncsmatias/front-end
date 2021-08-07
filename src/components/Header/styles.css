@@ -1,43 +1,47 @@
-.content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #5a189a;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
-    color: white;
-    width: 100%;
-    height: 8rem;
-    
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a60303;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 100%;
+  height: 8rem;
 }
-.header-content{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    height: 80%;    
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 80%;
 }
-#dropdown-basic{
-    width: 5rem;
-    height: 3rem;
-    background-color: #5a189a;
-    border: #5a189a;
+#dropdown-basic {
+  width: 5rem;
+  height: 3rem;
+  background-color: #a60303;
+  border: #a60303;
 }
-#dropp{
-    font-size: 1.0rem;
+#dropp {
+  font-size: 1rem;
 }
-.header-menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 5rem;
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 5rem;
 }
-.link,.link:link,.link:visited,.link:hover,.link:focus,.link:active{
-    color: inherit;
-    text-decoration: none;
+.link,
+.link:link,
+.link:visited,
+.link:hover,
+.link:focus,
+.link:active {
+  color: inherit;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
-    .header-content {
-      flex-direction: column;
-    }
+  .header-content {
+    flex-direction: column;
   }
+}

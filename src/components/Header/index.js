@@ -9,7 +9,7 @@ function Header() {
         <header className="content">
             <div className="header-content">
                 
-                <Link to="/home" className="link"><h2 className="logo">WEBSHOES</h2></Link>
+                <Link to="/home" className="link"><h2 className="logo">MilKasas - Materiais de construção</h2></Link>
                 <div className="header-menu">
                     <Link to="/shop" ><BsBagFill size={24} color={'white'}/></Link>
                 </div>
