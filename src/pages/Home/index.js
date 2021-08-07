@@ -19,7 +19,7 @@ function Index() {
   }, [])
 
   const getUser = async () => {
-  const response = await fetch('http://192.168.0.73:3333/user',{
+  const response = await fetch('http://localhost:3333/user',{
       method: "GET",
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -31,13 +31,13 @@ function Index() {
   };
 
   const getProducts = async () => {
-    const response = await fetch('http://192.168.0.73:3333/products');
+    const response = await fetch('http://localhost:3333/products');
     const jsonData = await response.json();
     setProducts(jsonData);
   };
 
   const getAddress = async () => {
-  const response = await fetch('http://192.168.0.73:3333/address',{
+  const response = await fetch('http://localhost:3333/address',{
       method: "GET",
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -54,13 +54,13 @@ function Index() {
   };
 
   async function maiorValor(){
-    const response = await fetch('http://192.168.0.73:3333/products/desc');
+    const response = await fetch('http://localhost:3333/products/desc');
     const jsonData = await response.json();
     setProducts(jsonData);
   }
 
   async function menorValor(){
-    const response = await fetch('http://192.168.0.73:3333/products/asc');
+    const response = await fetch('http://localhost:3333/products/asc');
     const jsonData = await response.json();
     setProducts(jsonData);
   }
